@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".Vista.ViewRegistrar">
+
+
 
     <TextView
         android:id="@+id/textView2"
@@ -87,7 +89,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Inicio"
-        android:textColor="@color/Menu"
+
         android:textStyle="bold"
         android:textSize="23sp"
         app:layout_constraintBottom_toTopOf="@+id/guidelin4"
@@ -101,6 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Registrar"
+        android:textColor="@color/Menu"
         android:textStyle="bold"
         android:textSize="20sp"
         android:layout_marginStart="5dp"
@@ -122,7 +125,7 @@
         app:layout_constraintStart_toEndOf="@+id/Registar"
         app:layout_constraintTop_toTopOf="@+id/guidelin3"
         app:layout_constraintEnd_toStartOf="@id/Actualizar"
-         />
+        />
 
 
     <TextView
@@ -137,7 +140,7 @@
         app:layout_constraintStart_toEndOf="@+id/Consultar"
         app:layout_constraintTop_toTopOf="@+id/guidelin3"
         app:layout_constraintEnd_toStartOf="@id/Borrar"
-         />
+        />
 
 
     <TextView
@@ -152,5 +155,6 @@
         app:layout_constraintEnd_toStartOf="@+id/guidelin8"
         app:layout_constraintStart_toEndOf="@+id/Actualizar"
         app:layout_constraintTop_toTopOf="@+id/guidelin3" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

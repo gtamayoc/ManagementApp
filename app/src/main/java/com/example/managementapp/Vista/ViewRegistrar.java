@@ -1,9 +1,7 @@
-package com.example.managementapp;
+package com.example.managementapp.Vista;
 
-import static com.example.managementapp.R.color.*;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatActivity;
+import static com.example.managementapp.R.color.Base;
+import static com.example.managementapp.R.color.Menu;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,22 +12,24 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.managementapp.Interfaces.InterfacesInicio;
-import com.example.managementapp.Presenter.PresenterInicio;
-import com.example.managementapp.Vista.ViewConsultar;
-import com.example.managementapp.Vista.ViewRegistrar;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity implements InterfacesInicio.IniView {
+import com.example.managementapp.Interfaces.InterfacesRegistrar;
+import com.example.managementapp.Presenter.PresenterRegistrar;
+import com.example.managementapp.R;
 
+public class ViewRegistrar extends AppCompatActivity implements InterfacesRegistrar.RegView {
 
     TextView Registrar, Consultar, Actualizar, Borrar, Inicio, Name;
-    InterfacesInicio.IniPresenter Presenter;
+    PresenterRegistrar Presenter;
     Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_view_registrar);
+
         Registrar = findViewById(R.id.Registar);
         Consultar = findViewById(R.id.Consultar);
         Actualizar = findViewById(R.id.Actualizar);
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements InterfacesInicio.
         Inicio = findViewById(R.id.Inicio);
         Name = findViewById(R.id.Name);
         context = this;
-        this.Presenter = new PresenterInicio(this);
+        this.Presenter = new PresenterRegistrar(this);
         String NameDataBase = getName();
         Name.setText(NameDataBase);
 
@@ -117,40 +117,31 @@ public class MainActivity extends AppCompatActivity implements InterfacesInicio.
         }
     }
 
-    public void vistaBoton(int opcion){
-        Intent siguiente;
+    public void vistaBoton(int opcion) {
         switch (opcion) {
             case 0:
-                siguiente = new Intent(MainActivity.this, ViewRegistrar.class);
-                startActivity(siguiente);
                 finish();
+                Intent siguiente = new Intent(ViewRegistrar.this, ViewRegistrar.class);
+                startActivity(siguiente);
                 break;
             case 1:
-                siguiente = new Intent(MainActivity.this, ViewConsultar.class);
-                startActivity(siguiente);
-                finish();
+
                 break;
             case 2:
-                siguiente = new Intent(MainActivity.this, ViewActualizar.class);
-                startActivity(siguiente);
-                finish();
+
                 break;
             case 3:
-                siguiente = new Intent(MainActivity.this, ViewBorrar.class);
-                startActivity(siguiente);
-                finish();
+
                 break;
             default:
-                siguiente = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(siguiente);
-                finish();
+
                 break;
         }
 
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)
-    public void configurarBoton(int opcion){
+    public void configurarBoton(int opcion) {
 
         switch (opcion) {
             case 0:
@@ -216,27 +207,5 @@ public class MainActivity extends AppCompatActivity implements InterfacesInicio.
         }
 
 
-
-
     }
-
-
-
-
-
-
-
-
-
-    /*
-    @Override
-    public void prueba(String prueba) {
-        this.Presenter.prueba(prueba);
-    }
-
-    @Override
-    public void prueba2(String prueba) {
-        Toast.makeText(context, " "+prueba, Toast.LENGTH_SHORT).show();
-    }
-     */
 }

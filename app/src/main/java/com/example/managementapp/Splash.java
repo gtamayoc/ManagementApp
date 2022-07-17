@@ -10,7 +10,7 @@ import android.os.Handler;
 
 public class Splash extends AppCompatActivity{
 
-    private final int tiempoTranscurrir = 3000;
+    private final int tiempoTranscurrir = 300;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
